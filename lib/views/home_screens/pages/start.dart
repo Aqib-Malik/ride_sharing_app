@@ -164,7 +164,7 @@ class _StartPageState extends State<StartPage> {
           children: <Widget>[
             Image.network(image, height: 30),
             SizedBox(height: 10,),
-            Text(name, style: TextStyle(fontSize: 14),)
+            Text(name, style: TextStyle(fontSize: 12),)
           ]
         ),
       ),

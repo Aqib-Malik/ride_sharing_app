@@ -110,11 +110,11 @@ class _DateAndTimeState extends State<DateAndTime> {
   ];
 
   final List<dynamic> _exteraCleaning = [
-    ['Washing', 'https://img.icons8.com/office/2x/washing-machine.png', '10'],
-    ['Fridge', 'https://img.icons8.com/cotton/2x/fridge.png', '8'],
-    ['Oven', 'https://img.icons8.com/external-becris-lineal-color-becris/2x/external-oven-kitchen-cooking-becris-lineal-color-becris.png', '8'],
-    ['Vehicle', 'https://img.icons8.com/external-vitaliy-gorbachev-blue-vitaly-gorbachev/2x/external-bycicle-carnival-vitaliy-gorbachev-blue-vitaly-gorbachev.png', '20'],
-    ['Windows', 'https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/2x/external-window-interiors-kiranshastry-lineal-color-kiranshastry-1.png', '20'],
+    ['Rickshaw', 'https://cdn-icons-png.flaticon.com/128/3132/3132431.png', '10'],
+    ['Mini', 'https://cdn-icons-png.flaticon.com/128/5393/5393902.png', '8'],
+    ['Car', 'https://cdn-icons-png.flaticon.com/128/3774/3774278.png', '8'],
+    // ['Vehicle', 'https://img.icons8.com/external-vitaliy-gorbachev-blue-vitaly-gorbachev/2x/external-bycicle-carnival-vitaliy-gorbachev-blue-vitaly-gorbachev.png', '20'],
+    // ['Windows', 'https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/2x/external-window-interiors-kiranshastry-lineal-color-kiranshastry-1.png', '20'],
   ];
 
   @override
@@ -297,7 +297,7 @@ class _DateAndTimeState extends State<DateAndTime> {
                 )
               ),
               SizedBox(height: 40,),
-              FadeAnimation(1.4, Text("Additional Service", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),)),
+              FadeAnimation(1.4, Text("Type", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),)),
               SizedBox(height: 10,),
               Container(
                 height: 120,
