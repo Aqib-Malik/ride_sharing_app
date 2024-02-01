@@ -1,11 +1,15 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:ride_share_app/views/home_screens/pages/start.dart';
 import 'package:ride_share_app/views/splash_screen.dart';
 
+
 void main () {
-  runApp(GetMaterialApp(
-    home: Splashscreen(),
+  runApp(const GetMaterialApp(
+    home: 
+    StartPage(),
+    // Splashscreen(),
     debugShowCheckedModeBanner: false,
   ));
 }

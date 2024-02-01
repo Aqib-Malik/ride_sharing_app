@@ -2,8 +2,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
+import 'package:ride_share_app/constants/color.dart';
 
-import 'auth_scree.dart/auth_screen.dart';
+import 'auth_screen.dart/auth_screen.dart';
 
 class Splashscreen extends StatefulWidget {
   const Splashscreen({Key? key}) : super(key: key);
@@ -41,7 +42,7 @@ class _SplashscreenState extends State<Splashscreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 74, 79, 183),
+      backgroundColor: kprimarColor,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -62,7 +63,7 @@ class _SplashscreenState extends State<Splashscreen> {
                   ),
                 ],
               ),
-              child: Text('Share Ride App'),
+              child: Text('Ride Share App'),
             ),
             Lottie.asset('assets/car_animation.json', height: 400, width: 400),
           

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart' show timeDilation;
 import 'package:flutter_login/flutter_login.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:lottie/lottie.dart';
+import 'package:get/get.dart';
 import 'package:ride_share_app/constants/color.dart';
-import 'package:ride_share_app/views/auth_scree.dart/custom_route.dart';
+import 'package:ride_share_app/views/auth_screen.dart/custom_route.dart';
 import 'package:ride_share_app/views/home_screens/pages/start.dart';
 // import 'package:ride_share_app/views/dashboard.dart/dash_board_screen.dart';
 
@@ -46,7 +46,7 @@ class LoginScreen extends StatelessWidget {
     return FlutterLogin(
       // title: 'Ride Share App',
       // keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
-      logo: const AssetImage('assets/signup.png'),
+      logo: const NetworkImage('https://cdn-icons-png.flaticon.com/128/3024/3024231.png'),
       logoTag: 'Ride Share',
       titleTag: 'Ride Share',
       navigateBackAfterRecovery: true,
@@ -125,23 +125,23 @@ class LoginScreen extends StatelessWidget {
       // hideForgotPasswordButton: true,
       // hideSignUpButton: true,
       // disableCustomPageTransformer: true,
-      // messages: LoginMessages(
-      //   userHint: 'User',
-      //   passwordHint: 'Pass',
-      //   confirmPasswordHint: 'Confirm',
-      //   loginButton: 'LOG IN',
-      //   signupButton: 'REGISTER',
-      //   forgotPasswordButton: 'Forgot huh?',
-      //   recoverPasswordButton: 'HELP ME',
-      //   goBackButton: 'GO BACK',
-      //   confirmPasswordError: 'Not match!',
-      //   recoverPasswordIntro: 'Don\'t feel bad. Happens all the time.',
-      //   recoverPasswordDescription: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
-      //   recoverPasswordSuccess: 'Password rescued successfully',
-      //   flushbarTitleError: 'Oh no!',
-      //   flushbarTitleSuccess: 'Succes!',
-      //   providersTitle: 'login with'
-      // ),
+      messages: LoginMessages(
+        // userHint: 'User',
+        // passwordHint: 'Pass',
+        // confirmPasswordHint: 'Confirm',
+        // loginButton: 'LOG IN',
+        signupButton: 'Create Account',
+        // forgotPasswordButton: 'Forgot huh?',
+        // recoverPasswordButton: 'HELP ME',
+        // goBackButton: 'GO BACK',
+        // confirmPasswordError: 'Not match!',
+        // recoverPasswordIntro: 'Don\'t feel bad. Happens all the time.',
+        // recoverPasswordDescription: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
+        // recoverPasswordSuccess: 'Password rescued successfully',
+        // flushbarTitleError: 'Oh no!',
+        // flushbarTitleSuccess: 'Succes!',
+        // providersTitle: 'login with',
+      ),
       theme: LoginTheme(
         primaryColor: kprimarColor,
         accentColor: kprimarColor,
@@ -278,36 +278,39 @@ class IntroWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Column(
-      children: [
-        //  Lottie.asset('assets/car_animation.json'),
-        
-        // Text.rich(
-        //   TextSpan(
-        //     children: [
-             
-        //       TextSpan(
-        //         text: "You are trying to login/sign up on server hosted on ",
-        //       ),
-        //       TextSpan(
-        //         text: "example.com",
-        //         style: TextStyle(fontWeight: FontWeight.bold),
-        //       ),
-        //     ],
-        //   ),
-        //   textAlign: TextAlign.justify,
-        // ),
-        // Row(
-        //   children: <Widget>[
-        //     Expanded(child: Divider()),
-        //     Padding(
-        //       padding: EdgeInsets.all(8.0),
-        //       child: Text("Authenticate"),
-        //     ),
-        //     Expanded(child: Divider()),
-        //   ],
-        // ),
-      ],
+    return  Container(
+      width: Get.width,
+      child: Column(
+        children: [
+          //  Lottie.asset('assets/car_animation.json',height: 80,width: 80,),
+          
+          // Text.rich(
+          //   TextSpan(
+          //     children: [
+               
+          //       TextSpan(
+          //         text: "You are trying to login/sign up on server hosted on ",
+          //       ),
+          //       TextSpan(
+          //         text: "example.com",
+          //         style: TextStyle(fontWeight: FontWeight.bold),
+          //       ),
+          //     ],
+          //   ),
+          //   textAlign: TextAlign.justify,
+          // ),
+          // Row(
+          //   children: <Widget>[
+          //     Expanded(child: Divider()),
+          //     Padding(
+          //       padding: EdgeInsets.all(8.0),
+          //       child: Text("Authenticate"),
+          //     ),
+          //     Expanded(child: Divider()),
+          //   ],
+          // ),
+        ],
+      ),
     );
   }
 }

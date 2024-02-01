@@ -198,7 +198,7 @@ class _HomePageState extends State<HomePage> {
           children: <Widget>[
             Image.network(image, height: 45),
             SizedBox(height: 20,),
-            Text(name, style: TextStyle(fontSize: 15),)
+            Text(name, style: TextStyle(fontSize: 14),)
           ]
         ),
       ),

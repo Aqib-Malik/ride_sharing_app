@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:ride_share_app/constants/color.dart';
 import 'package:ride_share_app/views/home_screens/animation/FadeAnimation.dart';
 import 'package:ride_share_app/views/home_screens/pages/date_time.dart';
 
@@ -12,9 +13,9 @@ class CleaningPage extends StatefulWidget {
 
 class _CleaningPageState extends State<CleaningPage> {
   // Rooms to clean
-  List<dynamic> _rooms =[
+  final List<dynamic> _rooms =[
     ['Living Room', 'https://img.icons8.com/officel/2x/living-room.png', Colors.red, 0],
-    ['Bedroom', 'https://img.icons8.com/fluency/2x/bedroom.png', Colors.orange, 1],
+    ['Seat', 'https://cdn-icons-png.flaticon.com/128/6331/6331941.png', Colors.orange, 1],
     ['Bathroom', 'https://img.icons8.com/color/2x/bath.png', Colors.blue, 1],
     ['Kitchen', 'https://img.icons8.com/dusk/2x/kitchen.png', Colors.purple, 0],
     ['Office', 'https://img.icons8.com/color/2x/office.png', Colors.green, 0]
@@ -52,7 +53,7 @@ class _CleaningPageState extends State<CleaningPage> {
               child: FadeAnimation(1, Padding(
                 padding: EdgeInsets.only(top: 120.0, right: 20.0, left: 20.0),
                 child: Text(
-                  'Where do you want \ncleaned?',
+                  'Create Car Pool',
                   style: TextStyle(
                     fontSize: 35,
                     color: Colors.grey.shade900,
@@ -153,10 +154,11 @@ class _CleaningPageState extends State<CleaningPage> {
                         );
                       }
                     ),
-                  )
+                  ),
+                  
                 ],
               ),
-            ) : SizedBox()
+            ) : SizedBox(),
           ],
         )
       ),
