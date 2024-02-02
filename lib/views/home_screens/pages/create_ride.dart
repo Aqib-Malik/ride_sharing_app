@@ -1,61 +1,32 @@
-
 import 'package:flutter/material.dart';
 import 'package:ride_share_app/constants/color.dart';
 import 'package:ride_share_app/views/home_screens/animation/FadeAnimation.dart';
 import 'package:ride_share_app/views/home_screens/pages/date_time.dart';
 
-class CleaningPage extends StatefulWidget {
-  const CleaningPage({ Key? key }) : super(key: key);
+class CreateRide extends StatefulWidget {
+  const CreateRide({Key? key}) : super(key: key);
 
   @override
-  _CleaningPageState createState() => _CleaningPageState();
+  _CreateRideState createState() => _CreateRideState();
 }
 
-class _CleaningPageState extends State<CleaningPage> {
+class _CreateRideState extends State<CreateRide> {
 
-  TextEditingController _pickController = TextEditingController();
-  TextEditingController _destinationController = TextEditingController();
-
-
-
-  // Rooms to clean
-  // Rooms to clean
-  final List<dynamic> _rooms = [
-    ['Living Room', 'https://img.icons8.com/officel/2x/living-room.png', Colors.red, 0],
+  final List<dynamic> _fields = [
     ['Seat', 'https://cdn-icons-png.flaticon.com/128/6331/6331941.png', Colors.orange, 1],
-    ['Discount', 'https://img.icons8.com/ios/50/000000/discount--v1.png', Colors.blue, 0], // Updated
     ['A C', 'https://cdn-icons-png.flaticon.com/128/7745/7745389.png', Colors.purple, 0],
-    ['Office', 'https://img.icons8.com/color/2x/office.png', Colors.green, 0],
-    ['Price', 'https://img.icons8.com/material/96/000000/price-tag--v1.png', Colors.pink, 0], // Added
-    ['Phone Number', 'https://img.icons8.com/ios/50/000000/phone.png', Colors.teal, 0], // Added
+    ['Price', 'https://img.icons8.com/material/96/000000/price-tag--v1.png', Colors.pink, 0],
+    ['Phone Number', 'https://cdn-icons-png.flaticon.com/128/5585/5585836.png', Colors.teal, 0],
+    ['Start Location', 'https://cdn-icons-png.flaticon.com/128/854/854929.png', Colors.teal, 0],
+    ['Destination', 'https://cdn-icons-png.flaticon.com/128/3710/3710271.png', Colors.teal, 0],
   ];
   List<int> _selectedRooms = [];
-@override
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      floatingActionButton: _selectedRooms.length > 0
-          ? FloatingActionButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => DateAndTime(),
-                  ),
-                );
-              },
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text('${_selectedRooms.length}', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-                  SizedBox(width: 2),
-                  Icon(Icons.arrow_forward_ios, size: 18,),
-                ],
-              ),
-              backgroundColor: Colors.blue,
-            )
-          : null,
-         body: NestedScrollView(
+      body: NestedScrollView(
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
           return <Widget>[
             SliverToBoxAdapter(
@@ -67,43 +38,14 @@ class _CleaningPageState extends State<CleaningPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Create Car Pool',
+                        'Create Ride',
                         style: TextStyle(
                           fontSize: 35,
                           color: Colors.grey.shade900,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(height: 20),
-                      Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: Colors.grey.shade200,
-                        ),
-                        child: TextField(
-                          controller: _pickController,
-                          decoration: InputDecoration(
-                            labelText: 'Start Location',
-                            border: InputBorder.none,
-                            contentPadding: EdgeInsets.symmetric(horizontal: 20),
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 20),
-                      Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: Colors.grey.shade200,
-                        ),
-                        child: TextField(
-                          controller: _destinationController,
-                          decoration: InputDecoration(
-                            labelText: 'Destination',
-                            border: InputBorder.none,
-                            contentPadding: EdgeInsets.symmetric(horizontal: 20),
-                          ),
-                        ),
-                      ),
+                    
                     ],
                   ),
                 ),
@@ -115,13 +57,52 @@ class _CleaningPageState extends State<CleaningPage> {
           padding: EdgeInsets.only(bottom: 20.0, left: 20, right: 30),
           child: ListView.builder(
             physics: NeverScrollableScrollPhysics(),
-            itemCount: _rooms.length,
+            itemCount: _fields.length,
             itemBuilder: (BuildContext context, int index) {
-              return FadeAnimation((1.2 + index) / 4, room(_rooms[index], index));
+              return FadeAnimation((1.2 + index) / 4, room(_fields[index], index));
             },
           ),
         ),
       ),
+      bottomNavigationBar: _selectedRooms.isNotEmpty
+          ? BottomAppBar(
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 20.0),
+                height: 60.0,
+                child:  Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: MaterialButton(
+                        elevation: 0,
+                        color: kprimarColor,
+                        onPressed: () {
+                           Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DateAndTime(),
+                      ),
+                    );
+                          
+                          
+                        },
+                        // height: 55,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)
+                        ),
+                        child: Center(
+                          child: Text(
+                            'Next',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      ),
+                ),
+              ),
+            )
+          : null,
     );
   }
 
@@ -208,6 +189,17 @@ class _CleaningPageState extends State<CleaningPage> {
                     ),
                   )
                 : SizedBox(),
+            // Add TextFields for Price and Phone Number
+            if (_selectedRooms.contains(index) && (room[0] == 'Price' || room[0] == 'Phone Number'|| room[0] == 'Start Location'|| room[0] == 'Destination'))
+              Container(
+                margin: EdgeInsets.only(top: 10),
+                child: TextField(
+                  decoration: InputDecoration(
+                    labelText: room[0] == 'Price' ? 'Enter Price' :room[0] =='Phone Number'? 'Enter Phone Number':room[0] =='Start Location'?'Enter Start Location':'Enter Destination',
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+              ),
           ],
         ),
       ),

@@ -13,7 +13,7 @@ class StartPage extends StatefulWidget {
   @override
   _StartPageState createState() => _StartPageState();
 }
-
+     
 class _StartPageState extends State<StartPage> {
   List<Service> services = [
     Service('Commute', 'https://cdn-icons-png.flaticon.com/128/3800/3800971.png'),

@@ -8,8 +8,8 @@ import 'package:ride_share_app/views/splash_screen.dart';
 void main () {
   runApp(const GetMaterialApp(
     home: 
-    StartPage(),
-    // Splashscreen(),
+    // StartPage(),
+    Splashscreen(),
     debugShowCheckedModeBanner: false,
   ));
 }
@@ -17,7 +17,7 @@ void main () {
 
 
 
-
+     
 
 
 

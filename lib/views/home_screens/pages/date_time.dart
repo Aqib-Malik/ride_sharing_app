@@ -4,6 +4,8 @@ import 'package:ride_share_app/views/home_screens/animation/FadeAnimation.dart';
 import 'package:ride_share_app/views/home_screens/pages/home.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
+import '../../../constants/color.dart';
+
 class DateAndTime extends StatefulWidget {
   const DateAndTime({ Key? key }) : super(key: key);
 
@@ -134,27 +136,50 @@ class _DateAndTimeState extends State<DateAndTime> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => HomePage(),
+      bottomNavigationBar:BottomAppBar(
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 20.0),
+                height: 60.0,
+                child:  Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: MaterialButton(
+                        elevation: 0,
+                        color: kprimarColor,
+                        onPressed: () {
+                            
+                          
+                        },
+                        // height: 55,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)
+                        ),
+                        child: Center(
+                          child: Text(
+                            'Submit',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      ),
+                ),
+              ),
             ),
-          );
-        },
-        child: Icon(Icons.arrow_forward_ios),
-      ),
+   
       body: NestedScrollView(
+        
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
           return <Widget>[
+            
             SliverToBoxAdapter(
               child: FadeAnimation(1, Padding(
-                padding: EdgeInsets.only(top: 120.0, right: 20.0, left: 20.0),
+                padding: EdgeInsets.only(top: 80.0, right: 20.0, left: 20.0),
                 child: Text(
                   'Select Date \nand Time',
                   style: TextStyle(
-                    fontSize: 35,
+                    fontSize: 30,
                     color: Colors.grey.shade900,
                     fontWeight: FontWeight.bold,
                   ),
@@ -168,7 +193,7 @@ class _DateAndTimeState extends State<DateAndTime> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 30,),
+              SizedBox(height: 10,),
               FadeAnimation(1, Row(
                 children: [
                   Text("October 2021"),
@@ -299,49 +324,65 @@ class _DateAndTimeState extends State<DateAndTime> {
               SizedBox(height: 40,),
               FadeAnimation(1.4, Text("Type", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),)),
               SizedBox(height: 10,),
-              Container(
-                height: 120,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.white,
+             Container(
+  height: 120,
+  decoration: BoxDecoration(
+    borderRadius: BorderRadius.circular(10),
+    color: Colors.white,
+    border: Border.all(width: 1.5, color: Colors.grey.shade200),
+  ),
+  child: SingleChildScrollView(
+    scrollDirection: Axis.horizontal,
+    child: Row(
+      children: List.generate(_exteraCleaning.length, (index) {
+        return GestureDetector(
+          onTap: () {
+            setState(() {
+              if (_selectedExteraCleaning.contains(index)) {
+                _selectedExteraCleaning.remove(index);
+              } else {
+                _selectedExteraCleaning.add(index);
+              }
+            });
+          },
+          child: Container(
+            width: 110,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              color: _selectedExteraCleaning.contains(index)
+                  ? Colors.blue.shade400
+                  : Colors.transparent,
+            ),
+            margin: EdgeInsets.only(right: 20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Image.network(_exteraCleaning[index][1], height: 40,),
+                SizedBox(height: 10,),
+                Text(
+                  _exteraCleaning[index][0],
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w500,
+                    color: _selectedExteraCleaning.contains(index)
+                        ? Colors.white
+                        : Colors.grey.shade800,
+                  ),
                 ),
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: _exteraCleaning.length,
-                  itemBuilder: (context, index) {
-                    return GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          if (_selectedExteraCleaning.contains(index)) {
-                            _selectedExteraCleaning.remove(index);
-                          } else {
-                            _selectedExteraCleaning.add(index);
-                          }
-                        });
-                      },
-                      child: FadeAnimation((1.4 + index) / 4, Container(
-                        width: 110,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                          color: _selectedExteraCleaning.contains(index) ? Colors.blue.shade400 : Colors.transparent,
-                        ),
-                        margin: EdgeInsets.only(right: 20),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Image.network(_exteraCleaning[index][1], height: 40,),
-                            SizedBox(height: 10,),
-                            Text(_exteraCleaning[index][0], style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500, color: _selectedExteraCleaning.contains(index) ? Colors.white : Colors.grey.shade800),),
-                            SizedBox(height: 5,),
-                            Text("+${_exteraCleaning[index][2]}\$", style: TextStyle(color: Colors.black),)
-                          ],
-                        )
-                      ))
-                    );
-                  },  
-                )
-              ),
+                
+                
+              ],
+            ),
+          ),
+        );
+      }),
+    ),
+    
+  ),
+),
+
+
             ],
           ), 
         ),
