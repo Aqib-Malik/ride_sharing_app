@@ -12,7 +12,7 @@ class CategoryCard extends StatelessWidget {
     final List<String> lottieAssetList; // Add this line for the list of Lottie assets
 
 
-  CategoryCard({
+  const CategoryCard({
     Key? key,
     required this.title,
     required this.primaryColor,
@@ -36,12 +36,12 @@ class CategoryCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return BounceInUp(
       child: Container(
-        margin: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+        margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
-              offset: Offset(0, 8),
+              offset: const Offset(0, 8),
               blurRadius: 16,
               color: Colors.grey[900]!.withOpacity(0.3),
             ),
@@ -75,7 +75,7 @@ class CategoryCard extends StatelessWidget {
                      Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children:lottieAssetList.map((asset) {
-                        return asset.contains('json')? Lottie.asset(asset, height: 80, width: 90):Image.network(asset, height: 70, width: 70);
+                        return asset.contains('json')? Lottie.asset(asset, height: 80, width: 100):Image.network(asset, height: 70, width: 70);
                       }).toList()
                     ),
                       
@@ -86,8 +86,8 @@ class CategoryCard extends StatelessWidget {
                   top: 20,
                   right: 20,
                   child: Container(
-                    padding: EdgeInsets.all(12),
-                    decoration: BoxDecoration(
+                    padding: const EdgeInsets.all(12),
+                    decoration: const BoxDecoration(
                       shape: BoxShape.circle,
                       color: Colors.white,
                     ),
@@ -114,8 +114,8 @@ class CategoryCard extends StatelessWidget {
                         ),
                         softWrap: false,
                       ),
-                      SizedBox(height: 8),
-                      Text(
+                      const SizedBox(height: 8),
+                      const Text(
                         "Tap to explore",
                         style: TextStyle(
                           fontSize: 14.0,

@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 
 /// Implementation copied from [RouteObserver] to notifies [TransitionRouteAware]s of changes to the

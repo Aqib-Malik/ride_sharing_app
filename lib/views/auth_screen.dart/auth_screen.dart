@@ -1,3 +1,5 @@
+// ignore_for_file: depend_on_referenced_packages
+
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart' show timeDilation;
 import 'package:flutter_login/flutter_login.dart';
@@ -6,7 +8,6 @@ import 'package:get/get.dart';
 import 'package:ride_share_app/constants/color.dart';
 import 'package:ride_share_app/views/auth_screen.dart/custom_route.dart';
 import 'package:ride_share_app/views/home_screens/pages/start.dart';
-// import 'package:ride_share_app/views/dashboard.dart/dash_board_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   static const routeName = '/auth';
@@ -258,7 +259,7 @@ class LoginScreen extends StatelessWidget {
       onSubmitAnimationCompleted: () {
         Navigator.of(context).pushReplacement(
           FadePageRoute(
-            builder: (context) =>  StartPage(),
+            builder: (context) =>  const StartPage(),
           ),
         );
       },
@@ -278,9 +279,9 @@ class IntroWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Container(
+    return  SizedBox(
       width: Get.width,
-      child: Column(
+      child: const Column(
         children: [
           //  Lottie.asset('assets/car_animation.json',height: 80,width: 80,),
           

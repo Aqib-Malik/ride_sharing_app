@@ -1,7 +1,8 @@
 
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:ride_share_app/views/home_screens/animation/FadeAnimation.dart';
-import 'package:ride_share_app/views/home_screens/pages/home.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 import '../../../constants/color.dart';
@@ -17,9 +18,9 @@ class _DateAndTimeState extends State<DateAndTime> {
   int _selectedDay = 2;
   int _selectedRepeat = 0;
   String _selectedHour = '13:30';
-  List<int> _selectedExteraCleaning = [];
+  final List<int> _selectedExteraCleaning = [];
 
-  ItemScrollController _scrollController = ItemScrollController();
+  final ItemScrollController _scrollController = ItemScrollController();
 
   final List<dynamic> _days = [
     [1, 'Fri'],
@@ -121,10 +122,10 @@ class _DateAndTimeState extends State<DateAndTime> {
 
   @override
   void initState() {
-    Future.delayed(Duration(milliseconds: 500), () {
+    Future.delayed(const Duration(milliseconds: 500), () {
       _scrollController.scrollTo(
         index: 24,
-        duration: Duration(seconds: 3),
+        duration: const Duration(seconds: 3),
         curve: Curves.easeInOut,
       );
     });
@@ -138,7 +139,7 @@ class _DateAndTimeState extends State<DateAndTime> {
       backgroundColor: Colors.white,
       bottomNavigationBar:BottomAppBar(
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 20.0),
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 height: 60.0,
                 child:  Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -153,7 +154,7 @@ class _DateAndTimeState extends State<DateAndTime> {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10)
                         ),
-                        child: Center(
+                        child: const Center(
                           child: Text(
                             'Submit',
                             style: TextStyle(
@@ -175,7 +176,7 @@ class _DateAndTimeState extends State<DateAndTime> {
             
             SliverToBoxAdapter(
               child: FadeAnimation(1, Padding(
-                padding: EdgeInsets.only(top: 80.0, right: 20.0, left: 20.0),
+                padding: const EdgeInsets.only(top: 80.0, right: 20.0, left: 20.0),
                 child: Text(
                   'Select Date \nand Time',
                   style: TextStyle(
@@ -189,17 +190,17 @@ class _DateAndTimeState extends State<DateAndTime> {
           ];
         },
         body: Padding(
-          padding: EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 10,),
+              const SizedBox(height: 10,),
               FadeAnimation(1, Row(
                 children: [
-                  Text("October 2021"),
-                  Spacer(),
+                  const Text("October 2021"),
+                  const Spacer(),
                   IconButton(
-                    padding: EdgeInsets.all(0),
+                    padding: const EdgeInsets.all(0),
                     onPressed: () {}, 
                     icon: Icon(Icons.arrow_drop_down_circle_outlined, color: Colors.grey.shade700,),
                   )
@@ -223,22 +224,22 @@ class _DateAndTimeState extends State<DateAndTime> {
                         });
                       },
                       child: AnimatedContainer(
-                        duration: Duration(milliseconds: 300),
+                        duration: const Duration(milliseconds: 300),
                         width: 62,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(5),
-                          color: _selectedDay == _days[index][0] ? Colors.blue.shade100.withOpacity(0.5) : Colors.blue.withOpacity(0),
+                          color: _selectedDay == _days[index][0] ? kprimarColor.withOpacity(0.5) : kprimarColor.withOpacity(0),
                           border: Border.all(
-                            color: _selectedDay == _days[index][0] ? Colors.blue : Colors.white.withOpacity(0),
+                            color: _selectedDay == _days[index][0] ? kprimarColor : Colors.white.withOpacity(0),
                             width: 1.5,
                           ),
                         ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text(_days[index][0].toString(), style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
-                            SizedBox(height: 10,),
-                            Text(_days[index][1], style: TextStyle(fontSize: 16),),
+                            Text(_days[index][0].toString(), style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                            const SizedBox(height: 10,),
+                            Text(_days[index][1], style: const TextStyle(fontSize: 16),),
                           ],
                         ),
                       ),
@@ -246,7 +247,7 @@ class _DateAndTimeState extends State<DateAndTime> {
                   }
                 ),
               ),
-              SizedBox(height: 10,),
+              const SizedBox(height: 10,),
               FadeAnimation(1.2, Container(
                 height: 60,
                 decoration: BoxDecoration(
@@ -266,7 +267,7 @@ class _DateAndTimeState extends State<DateAndTime> {
                         });
                       },
                       child: AnimatedContainer(
-                        duration: Duration(milliseconds: 300),
+                        duration: const Duration(milliseconds: 300),
                         width: 100,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(5),
@@ -279,7 +280,7 @@ class _DateAndTimeState extends State<DateAndTime> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text(_hours[index], style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
+                            Text(_hours[index], style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
                           ],
                         ),
                       ),
@@ -287,9 +288,9 @@ class _DateAndTimeState extends State<DateAndTime> {
                   }
                 ),
               )),
-              SizedBox(height: 40,),
-              FadeAnimation(1.2, Text("Repeat", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),)),
-              SizedBox(height: 10,),
+              const SizedBox(height: 40,),
+              const FadeAnimation(1.2, Text("Repeat", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),)),
+              const SizedBox(height: 10,),
               Container(
                 height: 50,
                 decoration: BoxDecoration(
@@ -307,12 +308,12 @@ class _DateAndTimeState extends State<DateAndTime> {
                         });
                       },
                       child: FadeAnimation((1.2 + index) / 4, Container(
-                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(15),
-                          color: _selectedRepeat == index ? Colors.blue.shade400 : Colors.grey.shade100,
+                          color: _selectedRepeat == index ? kprimarColor : Colors.grey.shade100,
                         ),
-                        margin: EdgeInsets.only(right: 20),
+                        margin: const EdgeInsets.only(right: 20),
                         child: Center(child: Text(_repeat[index], 
                           style: TextStyle(fontSize: 18, color: _selectedRepeat == index ? Colors.white : Colors.grey.shade800),)
                         ),
@@ -321,9 +322,9 @@ class _DateAndTimeState extends State<DateAndTime> {
                   },
                 )
               ),
-              SizedBox(height: 40,),
-              FadeAnimation(1.4, Text("Type", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),)),
-              SizedBox(height: 10,),
+              const SizedBox(height: 40,),
+              const FadeAnimation(1.4, Text("Type", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),)),
+              const SizedBox(height: 10,),
              Container(
   height: 120,
   decoration: BoxDecoration(
@@ -350,16 +351,16 @@ class _DateAndTimeState extends State<DateAndTime> {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
               color: _selectedExteraCleaning.contains(index)
-                  ? Colors.blue.shade400
+                  ? kprimarColor
                   : Colors.transparent,
             ),
-            margin: EdgeInsets.only(right: 20),
+            margin: const EdgeInsets.only(right: 20),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Image.network(_exteraCleaning[index][1], height: 40,),
-                SizedBox(height: 10,),
+                const SizedBox(height: 10,),
                 Text(
                   _exteraCleaning[index][0],
                   style: TextStyle(

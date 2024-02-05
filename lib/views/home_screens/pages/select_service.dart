@@ -1,26 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:ride_share_app/constants/color.dart';
 import 'package:ride_share_app/views/home_screens/pages/create_ride.dart';
 import 'package:ride_share_app/views/widgets/cat_widget.dart';
 
 class SelectService extends StatefulWidget {
+  const SelectService({super.key});
+
   @override
   State<SelectService> createState() => _SelectServiceState();
 }
 
 class _SelectServiceState extends State<SelectService> {
-  //  List<Service> services = [
-  //   Service('Create Car Pool', 'https://cdn-icons-png.flaticon.com/128/7178/7178653.png'),
-  //   Service('Join Pool', 'https://cdn-icons-png.flaticon.com/128/9540/9540585.png'),
-  //   Service('My Pools', 'https://cdn-icons-png.flaticon.com/128/8780/8780591.png'),
-  //   Service('My Profile', 'https://cdn-icons-png.flaticon.com/128/11472/11472723.png'),
-  //   Service('Settings', 'https://cdn-icons-png.flaticon.com/128/675/675729.png'),
-  //   Service('Help', 'https://cdn-icons-png.flaticon.com/128/189/189665.png'),
-  //   Service('Contact Us', 'https://cdn-icons-png.flaticon.com/128/5075/5075578.png'),
-  //   Service('Faq', 'https://cdn-icons-png.flaticon.com/128/2608/2608208.png'),
-  //   // Service('Driver', 'https://img.icons8.com/external-sbts2018-lineal-color-sbts2018/2x/external-driver-women-profession-sbts2018-lineal-color-sbts2018.png'),
-  //   // Service('Cook', 'https://img.icons8.com/external-wanicon-flat-wanicon/2x/external-cooking-daily-routine-wanicon-flat-wanicon.png'),
-  // ];
+
   @override
   void initState() {
     super.initState();
@@ -28,16 +20,16 @@ class _SelectServiceState extends State<SelectService> {
 
   final List<Widget> _categories = [
  
-    CategoryCard(
+    const CategoryCard(
         lottieAssetList: [
-          'https://cdn-icons-png.flaticon.com/128/9540/9540585.png'
+       'assets/map.json',
         ],
         title: 'Create Ride',
         primaryColor: Color(0xFF3383CD),
         secondaryColor: Color(0xFF11249F),
         screen: CreateRide(),
         icon: Icons.map),
-    CategoryCard(
+    const CategoryCard(
         lottieAssetList: [
           'https://cdn-icons-png.flaticon.com/128/8780/8780591.png'
         ],
@@ -46,7 +38,7 @@ class _SelectServiceState extends State<SelectService> {
         secondaryColor: Colors.red,
         screen: CreateRide(),
         icon: Icons.map),
-    CategoryCard(
+    const CategoryCard(
         lottieAssetList: [
           'https://cdn-icons-png.flaticon.com/128/11472/11472723.png'
         ],
@@ -55,7 +47,7 @@ class _SelectServiceState extends State<SelectService> {
         secondaryColor: Colors.orange,
         screen: CreateRide(),
         icon: Icons.person),
-    CategoryCard(
+    const CategoryCard(
         lottieAssetList: [
           'https://cdn-icons-png.flaticon.com/128/2608/2608208.png'
         ],
@@ -64,7 +56,7 @@ class _SelectServiceState extends State<SelectService> {
         secondaryColor: Color(0xFF11249F),
         screen: CreateRide(),
         icon: Icons.question_answer),
-    CategoryCard(
+    const CategoryCard(
         lottieAssetList: [
           'https://cdn-icons-png.flaticon.com/128/675/675729.png',
         ],
@@ -78,28 +70,70 @@ class _SelectServiceState extends State<SelectService> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Container(
-          decoration: BoxDecoration(
-            color: Colors.grey[50],
-            image: DecorationImage(
-              image: AssetImage('assets/bg-bottom.png'),
-              alignment: Alignment.bottomCenter,
+      body: Stack(
+        children: [
+          
+          Positioned(
+            bottom: 0,
+            child: Container(
+              width: MediaQuery.of(context).size.width/3,
+              height: 150,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.bottomLeft,
+                  end: Alignment.bottomRight,
+                  colors: [
+                    kprimarColor,
+                    Colors.lightBlue[200]!,
+                  ],
+                ),
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(10),
+                  topRight: Radius.circular(80),
+                  // bottomRight: Radius.circular(80),
+                ),
+              ),
             ),
           ),
-          child: Container(
+          Positioned(
+            right: 0,
+            bottom: 0,
+            child: Container(
+              width: MediaQuery.of(context).size.width/3,
+              height: 150,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.bottomLeft,
+                  end: Alignment.bottomRight,
+                  colors: [
+                    
+                    Color.fromARGB(255, 227, 102, 102)!,
+                    Color.fromARGB(255, 231, 50, 50)!,
+                  ],
+                ),
+                borderRadius: const BorderRadius.only(
+                  topRight: Radius.circular(10),
+                  topLeft: Radius.circular(100),
+                  // bottomLeft: Radius.circular(80),
+                ),
+              ),
+            ),
+          ),
+          
+          
+          Padding(
+            padding: const EdgeInsets.all(8.0),
             child: CustomScrollView(
               slivers: <Widget>[
                 SliverAppBar(
-                  expandedHeight: 300.0,
+                  expandedHeight: 200.0,
                   backgroundColor: Colors.grey[50],
                   flexibleSpace: FlexibleSpaceBar(
                     background: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Lottie.asset(
                         'assets/car_animation.json',
-                        fit: BoxFit.fill,
+                        fit: BoxFit.cover,
                         // alignment: Alignment.topCenter,
                       ),
                     ),
@@ -111,7 +145,8 @@ class _SelectServiceState extends State<SelectService> {
               ],
             ),
           ),
-        ),
+          
+        ],
       ),
     );
   }

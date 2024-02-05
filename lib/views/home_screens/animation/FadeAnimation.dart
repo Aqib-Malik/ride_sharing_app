@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:simple_animations/simple_animations.dart';
 enum AniProps { opacity, translateY }
@@ -6,7 +8,7 @@ class FadeAnimation extends StatelessWidget {
   final double delay;
   final Widget child;
 
-  FadeAnimation(this.delay, this.child);
+  const FadeAnimation(this.delay, this.child, {super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,4 +1,6 @@
 
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:ride_share_app/views/home_screens/animation/FadeAnimation.dart';
 import 'package:ride_share_app/views/home_screens/models/service.dart';
@@ -31,7 +33,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        title: Text('Dashboard', style: TextStyle(color: Colors.black),),
+        title: const Text('Dashboard', style: TextStyle(color: Colors.black),),
         elevation: 0,
         actions: [
           IconButton(
@@ -43,8 +45,8 @@ class _HomePageState extends State<HomePage> {
           onTap: () {
             Navigator.pushNamed(context, '/login');
           },
-          child: Padding(
-            padding: const EdgeInsets.all(10.0),
+          child: const Padding(
+            padding: EdgeInsets.all(10.0),
             child: CircleAvatar(
               backgroundImage: NetworkImage('https://uifaces.co/our-content/donated/NY9hnAbp.jpg'),
             ),
@@ -55,22 +57,22 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           children: [
             FadeAnimation(1, Padding(
-              padding: EdgeInsets.only(left: 20.0, top: 10.0, right: 10.0),
+              padding: const EdgeInsets.only(left: 20.0, top: 10.0, right: 10.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('Recent', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                  const Text('Recent', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
                   TextButton(
                     onPressed: () {}, 
-                    child: Text('View all',)
+                    child: const Text('View all',)
                   )
                 ],
               ),
             )),
             FadeAnimation(1.2, Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20.0),
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: Container(
-                padding: EdgeInsets.all(20.0),
+                padding: const EdgeInsets.all(20.0),
                 height: 180,
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -78,7 +80,7 @@ class _HomePageState extends State<HomePage> {
                   boxShadow: [
                     BoxShadow(
                       color: Colors.grey.shade200,
-                      offset: Offset(0, 4),
+                      offset: const Offset(0, 4),
                       blurRadius: 10.0,
                     ),
                   ],
@@ -93,77 +95,77 @@ class _HomePageState extends State<HomePage> {
                           borderRadius: BorderRadius.circular(15.0),
                           child: Image.network('https://images.pexels.com/photos/355164/pexels-photo-355164.jpeg?crop=faces&fit=crop&h=200&w=200&auto=compress&cs=tinysrgb', width: 70,)
                         ),
-                        SizedBox(width: 15,),
+                        const SizedBox(width: 15,),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("Isabel Kirkland", style: TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold),),
-                            SizedBox(height: 5,),
+                            const Text("Isabel Kirkland", style: TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold),),
+                            const SizedBox(height: 5,),
                             Text("Cleaner", style: TextStyle(color: Colors.black.withOpacity(0.7), fontSize: 18),),
                           ],
                         )
                       ],
                     ),
-                    SizedBox(height: 20,),
+                    const SizedBox(height: 20,),
                     Container(
                       height: 50,
                       decoration: BoxDecoration(
                         color: Colors.blue,
                         borderRadius: BorderRadius.circular(15.0)
                       ),
-                      child: Center(child: Text('View Profile', style: TextStyle(color: Colors.white, fontSize: 18),)),
+                      child: const Center(child: Text('View Profile', style: TextStyle(color: Colors.white, fontSize: 18),)),
                     )
                   ],
                 ),
               ),
             )),
-            SizedBox(height: 20,),
+            const SizedBox(height: 20,),
             FadeAnimation(1.3, Padding(
-              padding: EdgeInsets.only(left: 20.0, right: 10.0),
+              padding: const EdgeInsets.only(left: 20.0, right: 10.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('Categories', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                  const Text('Categories', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
                   TextButton(
                     onPressed: () {}, 
-                    child: Text('View all',)
+                    child: const Text('View all',)
                   )
                 ],
               ),
             )),
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               height: 300,
               child: GridView.builder(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 3,
                   childAspectRatio: 1.0,
                   crossAxisSpacing: 10.0,
                   mainAxisSpacing: 10.0,
                 ),
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 itemCount: services.length,
                 itemBuilder: (BuildContext context, int index) {
                   return FadeAnimation((1.0 + index) / 4, serviceContainer(services[index].imageURL, services[index].name, index));
                 }
               ),
             ),
-            SizedBox(height: 20,),
+            const SizedBox(height: 20,),
             FadeAnimation(1.3, Padding(
-              padding: EdgeInsets.only(left: 20.0, right: 10.0),
+              padding: const EdgeInsets.only(left: 20.0, right: 10.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('Top Rated', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                  const Text('Top Rated', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
                   TextButton(
                     onPressed: () {}, 
-                    child: Text('View all',)
+                    child: const Text('View all',)
                   )
                 ],
               ),
             )),
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               height: 120,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
@@ -173,7 +175,7 @@ class _HomePageState extends State<HomePage> {
                 }
               ),
             ),
-            SizedBox(height: 150,),
+            const SizedBox(height: 150,),
           ]
         )
       )
@@ -183,8 +185,8 @@ class _HomePageState extends State<HomePage> {
   serviceContainer(String image, String name, int index) {
     return GestureDetector(
       child: Container(
-        margin: EdgeInsets.only(right: 20),
-        padding: EdgeInsets.all(10.0),
+        margin: const EdgeInsets.only(right: 20),
+        padding: const EdgeInsets.all(10.0),
         decoration: BoxDecoration(
           color: Colors.grey.shade100,
           border: Border.all(
@@ -197,8 +199,8 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Image.network(image, height: 45),
-            SizedBox(height: 20,),
-            Text(name, style: TextStyle(fontSize: 14),)
+            const SizedBox(height: 20,),
+            Text(name, style: const TextStyle(fontSize: 14),)
           ]
         ),
       ),
@@ -210,8 +212,8 @@ class _HomePageState extends State<HomePage> {
       child: AspectRatio(
         aspectRatio: 3.5,
         child: Container(
-          margin: EdgeInsets.only(right: 20),
-          padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 15.0),
+          margin: const EdgeInsets.only(right: 20),
+          padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 15.0),
           decoration: BoxDecoration(
             color: Colors.white,
             border: Border.all(
@@ -227,24 +229,24 @@ class _HomePageState extends State<HomePage> {
                 borderRadius: BorderRadius.circular(15.0),
                 child: Image.network(image)
               ),
-              SizedBox(width: 20,),
+              const SizedBox(width: 20,),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(name, style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
-                  SizedBox(height: 5,),
-                  Text(job, style: TextStyle(fontSize: 15),)
+                  Text(name, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
+                  const SizedBox(height: 5,),
+                  Text(job, style: const TextStyle(fontSize: 15),)
                 ],
               ),
-              Spacer(),
+              const Spacer(),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(rating.toString(), style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
-                  SizedBox(height: 5,),
-                  Icon(Icons.star, color: Colors.orange, size: 20,)
+                  Text(rating.toString(), style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
+                  const SizedBox(height: 5,),
+                  const Icon(Icons.star, color: Colors.orange, size: 20,)
                 ],
               )
             ]

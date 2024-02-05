@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
@@ -15,21 +14,9 @@ class Splashscreen extends StatefulWidget {
 
 class _SplashscreenState extends State<Splashscreen> {
   _navigatertohome() async {
-    await Future.delayed(Duration(seconds: 4), () {
-      // Uncomment the following section when using authentication
-      // FirebaseAuth.instance.authStateChanges().listen((user) async {
-      //   if (user != null) {
-      //     Navigator.push(
-      //       context,
-      //       MaterialPageRoute(builder: (context) => StartPage()),
-      //     );
-      //   } else {
-      //     Get.offAll(() => LoginScreen());
-      //   }
-      // });
+    await Future.delayed(const Duration(seconds: 4), () {
 
-      // Temporarily using Get.offAll(() => LoginScreen()) for demonstration
-      Get.offAll(() => LoginScreen());
+      Get.offAll(() => const LoginScreen());
     });
   }
 
@@ -49,7 +36,7 @@ class _SplashscreenState extends State<Splashscreen> {
           children: [
             SizedBox(height: Get.height/5.4,),
              // Adjust the height as needed
-            AnimatedDefaultTextStyle(
+            const AnimatedDefaultTextStyle(
               duration: Duration(milliseconds: 500),
               style: TextStyle(
                 color: Colors.white,

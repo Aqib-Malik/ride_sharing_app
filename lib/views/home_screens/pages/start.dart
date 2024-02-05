@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'dart:async';
 import 'dart:math';
 
@@ -32,7 +34,7 @@ class _StartPageState extends State<StartPage> {
   @override
   void initState() {
     // Randomly select from service list every 2 seconds
-    Timer.periodic(Duration(seconds: 2), (timer) { 
+    Timer.periodic(const Duration(seconds: 2), (timer) { 
       setState(() {
         selectedService = Random().nextInt(services.length);
       });
@@ -47,19 +49,19 @@ class _StartPageState extends State<StartPage> {
       backgroundColor: kprimarColor,
       body: Column(
         children: [
-          SizedBox(height: 100,),
+          const SizedBox(height: 100,),
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 50),
+            padding: const EdgeInsets.symmetric(horizontal: 50),
             height: MediaQuery.of(context).size.height * 0.45,
             width: MediaQuery.of(context).size.width,
             child: GridView.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 3,
                 childAspectRatio: 1.0,
                 crossAxisSpacing: 8.0,
                 mainAxisSpacing: 8.0,
               ),
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               itemCount: services.length,
               itemBuilder: (BuildContext context, int index) {
                 return FadeAnimation((1.0 + index) / 4, serviceContainer(services[index].imageURL, services[index].name, index));
@@ -68,7 +70,7 @@ class _StartPageState extends State<StartPage> {
           ),
           Expanded(
             child: Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(80),
@@ -77,9 +79,9 @@ class _StartPageState extends State<StartPage> {
               ),
               child: Column(
                 children: [
-                  SizedBox(height: 50,),
+                  const SizedBox(height: 50,),
                   FadeAnimation(1.5, Container(
-                    padding: EdgeInsets.symmetric(horizontal: 40),
+                    padding: const EdgeInsets.symmetric(horizontal: 40),
                     child: Center(
                       child: Text(
                         'Share Rides, Share Smiles!',
@@ -92,9 +94,9 @@ class _StartPageState extends State<StartPage> {
                       ),
                     ),
                   )),
-                  SizedBox(height: 20,),
+                  const SizedBox(height: 20,),
                   FadeAnimation(1.5, Container(
-                    padding: EdgeInsets.symmetric(horizontal: 60),
+                    padding: const EdgeInsets.symmetric(horizontal: 60),
                     child: Center(
                       child: Text(
                         'Navigate Together, Arrive Happier – Your Commute, Our Commitment!',
@@ -107,7 +109,7 @@ class _StartPageState extends State<StartPage> {
                     ),
                   )),
                   FadeAnimation(1.5, Padding(
-                    padding: EdgeInsets.all(50.0),
+                    padding: const EdgeInsets.all(50.0),
                     child: MaterialButton(
                       elevation: 0,
                       color: kprimarColor,
@@ -115,7 +117,7 @@ class _StartPageState extends State<StartPage> {
                          Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => SelectService(),
+                            builder: (context) => const SelectService(),
                           ),
                         );
                       },
@@ -123,7 +125,7 @@ class _StartPageState extends State<StartPage> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10)
                       ),
-                      child: Center(
+                      child: const Center(
                         child: Text(
                           'Get Started',
                           style: TextStyle(
@@ -149,8 +151,8 @@ class _StartPageState extends State<StartPage> {
       onTap: () {
       },
       child: AnimatedContainer(
-        duration: Duration(milliseconds: 500),
-        padding: EdgeInsets.all(8.0),
+        duration: const Duration(milliseconds: 500),
+        padding: const EdgeInsets.all(8.0),
         decoration: BoxDecoration(
           color: selectedService == index ? Colors.white : Colors.grey.shade100,
           border: Border.all(
@@ -163,8 +165,8 @@ class _StartPageState extends State<StartPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Image.network(image, height: 30),
-            SizedBox(height: 10,),
-            Text(name, style: TextStyle(fontSize: 12),)
+            const SizedBox(height: 10,),
+            Text(name, style: const TextStyle(fontSize: 12),)
           ]
         ),
       ),
