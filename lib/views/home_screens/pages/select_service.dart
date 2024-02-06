@@ -77,7 +77,7 @@ class _SelectServiceState extends State<SelectService> {
             bottom: 0,
             child: Container(
               width: MediaQuery.of(context).size.width/3,
-              height: 150,
+              height: 100,
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   begin: Alignment.bottomLeft,
@@ -100,18 +100,18 @@ class _SelectServiceState extends State<SelectService> {
             bottom: 0,
             child: Container(
               width: MediaQuery.of(context).size.width/3,
-              height: 150,
-              decoration: BoxDecoration(
+              height: 100,
+              decoration: const BoxDecoration(
                 gradient: LinearGradient(
                   begin: Alignment.bottomLeft,
                   end: Alignment.bottomRight,
                   colors: [
                     
-                    Color.fromARGB(255, 227, 102, 102)!,
-                    Color.fromARGB(255, 231, 50, 50)!,
+                    Color.fromARGB(255, 227, 102, 102),
+                    Color.fromARGB(255, 231, 50, 50),
                   ],
                 ),
-                borderRadius: const BorderRadius.only(
+                borderRadius: BorderRadius.only(
                   topRight: Radius.circular(10),
                   topLeft: Radius.circular(100),
                   // bottomLeft: Radius.circular(80),
